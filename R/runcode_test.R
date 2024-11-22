@@ -1,7 +1,8 @@
 
-#'  Prepared code to run the included test image
-#' @param your_image Any image object loaded into R of common type or pathname to your image
-#' @return An image  with grayscale values applied or twolor filter on top of that.
+#'  #Prepared code to run the included test image
+#'
+#'
+#'
 
 #run code to import test image to object
 testimage <- "~/Rprogrammingversioncontrol/VectorizedColorFilter/SourceFiles/test.jpg"

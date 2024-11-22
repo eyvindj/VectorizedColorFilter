@@ -1,5 +1,5 @@
 
-##' Vectorized Grayscale Filter
+#' #Vectorized Grayscale Filter
 #' Converts any image of common format (eg .jpg .png. etc.) or pathname to your image file
 #' Applies 0.299 * R,  0.587 * G,  and 0.114 * B
 #'

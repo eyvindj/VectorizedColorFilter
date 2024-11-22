@@ -1,4 +1,4 @@
-#' Vectorized Two-Color Filter
+#' #Vectorized Two-Color Filter
 #'
 #' @param your_image An image as either a file path or image of standard format (.jpg .png etc.).
 #' @param color1 default "pink" A  rgb triplet vector to select color 1 in twocolor image filter, R standard colors within "" (eg. "pink" )also works
