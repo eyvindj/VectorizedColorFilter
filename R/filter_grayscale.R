@@ -7,7 +7,7 @@
 #' @param your_image Any image object loaded into R of common type or pathname to your image
 #' @return A filtered bitmap with grayscale values applied.
 #' @export
-filter_gray_scale_vectorized <- function(your_image) {
+filter_grayscale<- function(your_image) {
 
   if (is.character(your_image) && file.exists(your_image)) {
 

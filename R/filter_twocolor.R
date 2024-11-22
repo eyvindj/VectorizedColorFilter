@@ -7,7 +7,7 @@
 #' @return A filtered bitmap with color_1 and color_2 values applied.
 #' @export
 #'
-filter_two_color_vectorized <- function(your_image, cutoff = 97, color1="pink",color2="blue") {
+filter_twocolor <- function(your_image, cutoff = 97, color1="pink",color2="blue") {
 
   if (is.character(your_image) && file.exists(your_image)) {
 
