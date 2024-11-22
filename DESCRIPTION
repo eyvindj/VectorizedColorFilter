@@ -4,9 +4,9 @@ Title: Convert an image to gray scale and provide cut off for two color filter
 Version: 0.1.0
 Author: Eyvind Liljegren
 Maintainer: The package maintainer <eyvind.liljegren@gmail.com>
-Description: Package extracts rgb as a numerical vector with the function filter_grayscale.
-The function filter_twocolor applies a cutoff level and the choice of two color to apply.
- 
-License: What license is it under?
+Description: Package extracts rgb as a numerical vector with the function filter_grayscale.    The function filter_twocolor applies a cutoff level and the choice of two color to apply.
+License: MIT
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
