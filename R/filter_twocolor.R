@@ -1,9 +1,14 @@
-#' #Vectorized Two-Color Filter
+#' Vectorized Two-Color Filter
+#' @description
+#' Converts any image of common format (eg .jpg .png. etc.) or pathname to your image file
+#' Applies grayscale filter according to 0.299 x R,  0.587 x G,  and 0.114 x B
 #'
+#' Then applies a cutoff to the numerical gray scale value (0-255) and two colors to the upper and lower range
+#' uses the magick package and outputs image file using image_read function.
 #' @param your_image An image as either a file path or image of standard format (.jpg .png etc.).
-#' @param color1 default "pink" A  rgb triplet vector to select color 1 in twocolor image filter, R standard colors within "" (eg. "pink" )also works
-#' @param color2 default "blue" A rgb triplet vector to select color 2 in twocolor image filter, R standard colors within "" also works
-#' @param cutoff default = 97 (works well with included example) A numeric decimal value for the grayscale cutoff to apply two color filter.
+#' @param color1  A  rgb triplet vector to select color 1 in twocolor image filter, R standard colors within "" (eg. "pink" )also works
+#' @param color2  A rgb triplet vector to select color 2 in twocolor image filter, R standard colors within "" also works
+#' @param cutoff  the default works well with supplied picture A numeric decimal value for the grayscale cutoff to apply two color filter.
 #' @return A filtered bitmap with color_1 and color_2 values applied.
 #' @export
 #'

@@ -3,20 +3,14 @@
 \docType{data}
 \name{testimage}
 \alias{testimage}
-\title{Prepared code to run the included test image}
+\title{#Prepared code to run the included test image}
 \format{
 An object of class \code{character} of length 1.
 }
 \usage{
 testimage
 }
-\arguments{
-\item{your_image}{Any image object loaded into R of common type or pathname to your image}
-}
-\value{
-An image  with grayscale values applied or twolor filter on top of that.
-}
 \description{
-Prepared code to run the included test image
+#Prepared code to run the included test image
 }
 \keyword{datasets}
