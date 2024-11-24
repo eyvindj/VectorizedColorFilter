@@ -17,7 +17,7 @@ filter_grayscale<- function(your_image) {
   if (is.character(your_image) && file.exists(your_image)) {
 
     img <- tryCatch({                # Try to read the file as an image
-      image_read(your_image)
+      magick::image_read(your_image)
     }, error = function(e) {
       stop("The provided path is not a valid image file.") #error with message
     })                                                       # Input is already an image object
@@ -28,7 +28,7 @@ filter_grayscale<- function(your_image) {
   }
 
 
-  bitmap <- image_data(img) # Convert the image to a bitmap
+  bitmap <- magick::image_data(img) # Convert the image to a bitmap
 
   # Calculate grayscale in numeric RGB values for all pixels
   grayscale <- round(
@@ -44,7 +44,7 @@ filter_grayscale<- function(your_image) {
   filtered_bitmap[2, , ] <- as.raw(grayscale)  # G channel
   filtered_bitmap[3, , ] <- as.raw(grayscale)  # B channel
 
-  filtered_image <- image_read(filtered_bitmap)
+  filtered_image <- magick::image_read(filtered_bitmap)
   #print(as.raw(color_2))
   return(filtered_image)
 }

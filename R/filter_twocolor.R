@@ -17,7 +17,7 @@ filter_twocolor <- function(your_image, cutoff = 97, color1="pink",color2="blue"
   if (is.character(your_image) && file.exists(your_image)) {
 
     img <- tryCatch({                # Try to read the file as an image
-      image_read(your_image)
+      magick::image_read(your_image)
     }, error = function(e) {
       stop("The provided path is not a valid image file.") #error with message
     })                                                       # Input is already an image object
@@ -28,8 +28,7 @@ filter_twocolor <- function(your_image, cutoff = 97, color1="pink",color2="blue"
   }
 
 
-  bitmap <- image_data(img) #read your file file from your chosen filepath (preferably in project directory)
-  bitmap <- image_data(img)
+  bitmap <- magick::image_data(img) #read your file file from your chosen filepath (preferably in project directory)
 
   color_1 <- c(col2rgb(color1))
   color_2 <- c(col2rgb(color2))
@@ -57,7 +56,7 @@ filter_twocolor <- function(your_image, cutoff = 97, color1="pink",color2="blue"
   filtered_bitmap[3, , ][below_cutoff] <- as.raw(color_2[3])   # B (Color_2)
 
 
-  filtered_image <- image_read(filtered_bitmap)
+  filtered_image <- magick::image_read(filtered_bitmap)
   #print(as.raw(color_2))
   return(filtered_image)
 }
