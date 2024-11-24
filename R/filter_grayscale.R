@@ -7,7 +7,7 @@
 #' Applies grayscale filter according to 0.299 x R,  0.587 x G,  and 0.114 x B
 #' uses the magick package and outputs image file using image_read function.
 #'
-#'
+#' @importFrom magick image_read image_data
 #' @param your_image Any image object loaded into R of common type or pathname to your image
 #' @param filepath to your image
 #' @return A filtered image with grayscale values applied. (using image_read from library(magick))
