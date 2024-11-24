@@ -12,6 +12,7 @@
 #' @param filepath to your image
 #' @return A filtered image with grayscale values applied. (using image_read from library(magick))
 #' @export
+library(magick)
 filter_grayscale<- function(your_image) {
 
   if (is.character(your_image) && file.exists(your_image)) {

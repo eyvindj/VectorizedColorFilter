@@ -13,6 +13,8 @@
 #' @return A filtered bitmap with color_1 and color_2 values applied.
 #' @export
 #'
+library(magick)
+
 filter_twocolor <- function(your_image, cutoff = 97, color1="pink",color2="blue") {
 
   if (is.character(your_image) && file.exists(your_image)) {
