@@ -6,13 +6,16 @@
 #' Converts any image of common format (eg .jpg .png. etc.) or pathname to your image file
 #' Applies grayscale filter according to 0.299 x R,  0.587 x G,  and 0.114 x B
 #' uses the magick package and outputs image file using image_read function.
-#'
-
 #' @param your_image Any image object loaded into R of common type or pathname to your image
-
 #' @return A filtered image with grayscale values applied. (using image_read from library(magick))
+#' @examples
+#' library(magick)
+#' # Example using an image file
+#' grayscale_image <- filter_grayscale("path/to/image.jpg")
+#' # Example using an image object
+#' img <- image_read("path/to/image.jpg")
+#' grayscale_image <- filter_grayscale(img)
 #' @export
-library(magick)
 filter_grayscale<- function(your_image) {
 
   if (is.character(your_image) && file.exists(your_image)) {
