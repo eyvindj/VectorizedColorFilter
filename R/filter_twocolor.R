@@ -5,7 +5,7 @@
 #'
 #' Then applies a cutoff to the numerical gray scale value (0-255) and two colors to the upper and lower range
 #' uses the magick package and outputs image file using image_read function.
-#' @importFrom magick image_read image_data
+
 #' @param your_image An image as either a file path or image of standard format (.jpg .png etc.).
 #' @param color1  A  rgb triplet vector to select color 1 in twocolor image filter, R standard colors within "" (eg. "pink" )also works
 #' @param color2  A rgb triplet vector to select color 2 in twocolor image filter, R standard colors within "" also works
