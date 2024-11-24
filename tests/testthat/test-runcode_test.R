@@ -26,6 +26,8 @@
 #' @import magick
 #' @export
 library(magick)
+library(usethis)
+library(testthat)
 
 testimage <- system.file("extdata", "test.jpg", package = "VectorizedColorFilter")
 testimage2 <- system.file("extdata", "test2.jpg", package = "VectorizedColorFilter")
