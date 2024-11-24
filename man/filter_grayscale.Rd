@@ -18,10 +18,13 @@ Applies grayscale filter according to 0.299 x R,  0.587 x G,  and 0.114 x B
 uses the magick package and outputs image file using image_read function.
 }
 \examples{
-library(magick)
-# Example using an image file
-grayscale_image <- filter_grayscale("path/to/image.jpg")
-# Example using an image object
-img <- image_read("path/to/image.jpg")
+\dontrun{
+# Load example image from the package
+test_image_path <- system.file("extdata", "test.jpg", package = "VectorizedColorFilter")
+grayscale_image <- filter_grayscale(test_image_path)
+
+# Apply filter to an image object
+img <- magick::image_read(test_image_path)
 grayscale_image <- filter_grayscale(img)
+}
 }

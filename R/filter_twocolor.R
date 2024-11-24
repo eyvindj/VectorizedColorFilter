@@ -11,15 +11,18 @@
 #' @param cutoff  the default works well with supplied picture A numeric decimal value for the grayscale cutoff to apply two color filter.
 #' @return A filtered bitmap with color_1 and color_2 values applied.
 #' @examples
-#' library(magick)
-#' # Example using an image file
-#' twocolor_image <- filter_twocolor("path/to/image.jpg")
-#' # Example using an image object
-#' img <- image_read("path/to/image.jpg")
-#' twocolor_image <- filter_twocolor(img)
+#' \dontrun{
+#' # Load example image using system.file() for portability
+#' test_image_path <- system.file("extdata", "test.jpg", package = "VectorizedColorFilter")
+#' twocolor_image <- filter_twocolor(test_image_path)  # Apply grayscale filter
 #'
+#' # Example using an image object
+#' img <- magick::image_read(test_image_path)
+#' twocolor_image <- filter_twocolor(img)
+#' }
+#' @importFrom magick image_read image_data
+#' @importFrom grDevices col2rgb
 #' @export
-
 filter_twocolor <- function(your_image, cutoff = 97, color1="pink",color2="blue") {
 
   if (is.character(your_image) && file.exists(your_image)) {

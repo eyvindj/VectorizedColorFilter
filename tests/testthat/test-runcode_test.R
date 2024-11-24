@@ -16,18 +16,12 @@
 #' @examples
 #' \dontrun{
 #' testimage <- system.file("extdata", "test.jpg", package = "VectorizedColorFilter")
-#' testimage2 <- system.file("extdata", "test2.jpg", package = "VectorizedColorFilter")
-#' gray1 <- filter_grayscale(testimage)
-#' gray2 <- filter_grayscale(testimage2)
-#' twocolor1 <- filter_twocolor(testimage, color1="yellow", color2="lightblue")
-#' twocolor2 <- filter_twocolor(testimage2, color1="yellow", color2="lightblue")
+#' gray_image <- filter_grayscale(testimage)
+#' twocolor_image <- filter_twocolor(testimage, color1 = "yellow", color2 = "lightblue")
 #' }
-#'
-#' @import magick
+#' @importFrom magick image_read
 #' @export
-library(magick)
-library(usethis)
-library(testthat)
+
 
 testimage <- system.file("extdata", "test.jpg", package = "VectorizedColorFilter")
 testimage2 <- system.file("extdata", "test2.jpg", package = "VectorizedColorFilter")

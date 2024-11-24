@@ -26,11 +26,13 @@ Then applies a cutoff to the numerical gray scale value (0-255) and two colors t
 uses the magick package and outputs image file using image_read function.
 }
 \examples{
-library(magick)
-# Example using an image file
-twocolor_image <- filter_twocolor("path/to/image.jpg")
-# Example using an image object
-img <- image_read("path/to/image.jpg")
-twocolor_image <- filter_twocolor(img)
+\dontrun{
+# Load example image using system.file() for portability
+test_image_path <- system.file("extdata", "test.jpg", package = "VectorizedColorFilter")
+twocolor_image <- filter_twocolor(test_image_path)  # Apply grayscale filter
 
+# Example using an image object
+img <- magick::image_read(test_image_path)
+twocolor_image <- filter_twocolor(img)
+}
 }

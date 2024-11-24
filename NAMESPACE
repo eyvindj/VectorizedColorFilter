@@ -2,3 +2,6 @@
 
 export(filter_grayscale)
 export(filter_twocolor)
+importFrom(grDevices,col2rgb)
+importFrom(magick,image_data)
+importFrom(magick,image_read)

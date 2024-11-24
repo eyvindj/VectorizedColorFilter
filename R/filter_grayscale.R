@@ -9,12 +9,16 @@
 #' @param your_image Any image object loaded into R of common type or pathname to your image
 #' @return A filtered image with grayscale values applied. (using image_read from library(magick))
 #' @examples
-#' library(magick)
-#' # Example using an image file
-#' grayscale_image <- filter_grayscale("path/to/image.jpg")
-#' # Example using an image object
-#' img <- image_read("path/to/image.jpg")
+#' \dontrun{
+#' # Load example image from the package
+#' test_image_path <- system.file("extdata", "test.jpg", package = "VectorizedColorFilter")
+#' grayscale_image <- filter_grayscale(test_image_path)
+#'
+#' # Apply filter to an image object
+#' img <- magick::image_read(test_image_path)
 #' grayscale_image <- filter_grayscale(img)
+#' }
+#' @importFrom magick image_read image_data
 #' @export
 filter_grayscale<- function(your_image) {
 
