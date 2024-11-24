@@ -9,7 +9,7 @@
 #'
 
 #' @param your_image Any image object loaded into R of common type or pathname to your image
-#' @param filepath to your image
+
 #' @return A filtered image with grayscale values applied. (using image_read from library(magick))
 #' @export
 library(magick)

@@ -8,7 +8,7 @@ Description: Provides tools for processing images. The function 'filter_grayscal
              converts an image to grayscale by extracting RGB values as a numerical vector. 
              The function 'filter_twocolor' applies a cutoff level and maps the image to 
              two specified colors. Built on the 'magick' package for image manipulation.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: magick
@@ -16,3 +16,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 URL: https://github.com/eyvindj/VectorizedColorFilter
 BugReports: https://github.com/eyvindj/VectorizedColorFilter/issues
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
