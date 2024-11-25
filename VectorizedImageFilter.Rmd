@@ -6,6 +6,10 @@ output: html_document
 ---
 # Markdown file to simplify reading the code and testing it
 
+available at: 
+
+https://github.com/eyvindj/VectorizedColorFilter.git
+
 run the first chunk to load package (if not already loaded)
 ```{r setup, include=TRUE}
 knitr::opts_chunk$set(echo = TRUE)
