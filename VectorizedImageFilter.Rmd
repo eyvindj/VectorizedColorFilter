@@ -1,0 +1,119 @@
+---
+title: "Vectorized_image_filter_intermediate_R"
+author: "Eyvind Liljegren"
+date: "`r Sys.Date()`"
+output: html_document
+---
+# Markdown file to simplify reading the code and testing it
+
+run the first chunk to load package (if not already loaded)
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(VectorizedColorFilter)
+
+```
+
+## Filter with grayscale function and the optional twocolor filter
+
+### Usage:filter_twocolor <- function(your_image, cutoff = 97,         color1="pink",color2="blue")
+ 
+`your_image` Requires input in the format of standard image format (eg. .jpg .png) or an image object.
+
+`cutoff` Default: 97, (range 0-255) RGB with numerical values.
+
+`color1` Default: "pink", Any color in RGB, either numerical or hexadecimal and all standard colors in  within "".
+
+`color2` Default: "blue", Any color in RGB, either numerical or hexadecimal and all standard colors in  within "".
+
+
+"
+```{r, include= TRUE, echo = FALSE }
+filter_twocolor <- function(your_image, cutoff = 97, color1="pink",color2="blue") {
+
+  if (is.character(your_image) && file.exists(your_image)) {
+
+    img <- tryCatch({                # Try to read the file as an image
+      magick::image_read(your_image)
+    }, error = function(e) {
+      stop("The provided path is not a valid image file.") #error with message
+    })                                                       # Input is already an image object
+  } else if (inherits(your_image, "magick-image")) {        # tries to read as an image and brings its class
+    img <- your_image
+  } else {
+    stop("Input must be a valid image file or a magick image object.")  # if not image or filepath
+  }
+
+
+  bitmap <- magick::image_data(img) #read your file file from your chosen filepath (preferably in project directory)
+
+  color_1 <- c(col2rgb(color1))
+  color_2 <- c(col2rgb(color2))
+  #print(color_1)
+  #print(color_2)
+  # Convert to grayscale
+  grayscale <- round(
+    0.299 * as.numeric(bitmap[1, , ]) +
+      0.587 * as.numeric(bitmap[2, , ]) +
+      0.114 * as.numeric(bitmap[3, , ])
+  )
+
+  # Create an empty filtered bitmap
+  filtered_bitmap <- bitmap
+
+  # Apply the cutoff condition
+  above_cutoff <- grayscale > cutoff
+  filtered_bitmap[1, , ][above_cutoff] <- as.raw(color_1[1])   # R
+  filtered_bitmap[2, , ][above_cutoff] <- as.raw(color_1[2])    # G
+  filtered_bitmap[3, , ][above_cutoff] <- as.raw(color_1[3])   # B (Color_1)
+
+  below_cutoff <- !above_cutoff
+  filtered_bitmap[1, , ][below_cutoff] <- as.raw(color_2[1])    # R
+  filtered_bitmap[2, , ][below_cutoff] <- as.raw(color_2[2])   # G
+  filtered_bitmap[3, , ][below_cutoff] <- as.raw(color_2[3])   # B (Color_2)
+
+
+  filtered_image <- magick::image_read(filtered_bitmap)
+  #print(as.raw(color_2))
+  return(filtered_image)
+}
+
+
+
+```
+
+## Test files
+
+Code with example file to test the filter function
+
+```{r Test filter,include=TRUE, echo=TRUE}
+
+
+testimage <- system.file("extdata", "test.jpg", package = "VectorizedColorFilter")
+testimage2 <- system.file("extdata", "test2.jpg", package = "VectorizedColorFilter")
+
+testimage <- magick::image_read(testimage)
+testimage2 <- magick::image_read(testimage2)
+
+
+gray1 <- filter_grayscale(testimage)
+gray2 <- filter_grayscale(testimage2)
+
+
+twocolor1 <- filter_twocolor(testimage, color1="yellow", color2="lightblue")
+twocolor2 <- filter_twocolor(testimage2, color1="yellow", color2="lightblue")
+
+par(mfrow = c(2, 3),    # 2 rows, 3 columns
+    mar = c(1, 1, 1, 1), # Margins around each plot (bottom, left, top, right)
+    oma = c(0, 0, 0, 0)) # Outer margin (optional)
+
+
+# Plot the images
+plot(testimage)
+plot(gray1)
+plot(twocolor1)
+plot(testimage2)
+plot(gray2)
+plot(twocolor2)
+```
+
+
